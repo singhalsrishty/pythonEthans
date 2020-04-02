@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 '''
 1. Write a program which can compute the factorial of a give numbers.
 The results should be printed in a comma-separated sequence on a single line. Suppose the
@@ -11,26 +5,19 @@ following input is supplied to the program:
 8
 Then, the output should be:
 40320
+
 '''
-
-
-# In[6]:
-
 
 def factorial(num):
     fact = 1;
     if num == 0:
-        pass
+        return fact;
     else:
         for i in range(1, num+1):
             fact *= i;
     return fact;
 number = int(input("Enter the number to calculate factorial: "));
 print(factorial(number));
-
-
-# In[ ]:
-
 
 '''
 3. Write a program that calculates and prints the value according to the given formula:
@@ -43,11 +30,6 @@ Example: Let us assume the following comma-separated input sequence is given to 
 The output of the program should be:
 18, 22, 24
 '''
-
-
-# In[8]:
-
-
 import math as maths;
 
 c=50; h=30;
@@ -61,27 +43,18 @@ def calculateSquareRoot_Formula(seq):
 
 inputs = input("Enter numbers: ");
 seq = inputs.split(",");
-
-for result in calculateSquareRoot_Formula(seq):
-    print(result, end=", ");
-
-
-# In[ ]:
-
+#print(seq);
+print(calculateSquareRoot_Formula(seq));
 
 '''
 4. Write a program that accepts a sequence of whitespace seperated words as input and print the
-words after removing all the duplicate words and sorting them alphanumerically.
+wprds after removing all the duplicate words and sorting them alphanumerically.
 Suppose the following input is supplied to the program:
 hello world and practice makes perfect and hello world again
 Then, the output should be:
 again and hello makes perfect practice world
+
 '''
-
-
-# In[9]:
-
-
 def removeDuplicate(sentence):
     result = set();
     for words in sentence:
@@ -99,29 +72,18 @@ resultList = sortLexicographically(nonDuplicates);
 for item in resultList:
     print(item, end=" ");
 
-
-# In[ ]:
-
-
 '''
+
 5. Write a program which will find all such numbers between 1000 and 3000 (both included) such that
 each digit of the number is an even number. The numbers obtained should be printed in a comma-separated sequence
 on a single line.
+
 '''
-
-
-# In[2]:
-
-
 def printEven():
     for i in range(1000, 3001):
         if i%2 == 0:
             print(i, end=", ")
 printEven();
-
-
-# In[ ]:
-
 
 '''
 6. Write a program that accepts a sentence and calculate the number of letters and digits.
@@ -131,10 +93,6 @@ Then, the output should be:
 LETTERS 10
 DIGITS 3
 '''
-
-
-# In[10]:
-
 
 def countLetters(seq):
     letters = 0;
@@ -148,6 +106,7 @@ def countDigits(seq):
     digits = 0;
     for word in list(seq):
         for char in word:
+            str(char).isupper();
             if str(char).isdigit():
                 digits += 1;
     return digits;
@@ -155,10 +114,6 @@ def countDigits(seq):
 inputs = input("Enter the input: ").split(" ");
 print("LETTERS ", countLetters(inputs));
 print("DIGITS ", countDigits(inputs));
-
-
-# In[ ]:
-
 
 '''
 7. Write a program that accepts a sentence and calculate the number of upper case letters and lower case letters.
@@ -168,11 +123,6 @@ Then, the output should be:
 UPPER CASE 1
 LOWER CASE 9
 '''
-
-
-# In[11]:
-
-
 def calculateUpperCase(seq):
     count = 0;
     for word in seq:
@@ -193,10 +143,6 @@ inputs = input("Enter the sentence: ").split(" ");
 print("UPPER CASE ", calculateUpperCase(inputs));
 print("LOWER CASE ", calculateLowerCase(inputs));
 
-
-# In[ ]:
-
-
 '''
 8. Write a program that computes the net amount of a bank account based on a transaction log from console input.
 The transaction log format is shown as following:
@@ -212,10 +158,6 @@ Then, output should be:
 500
 '''
 
-
-# In[18]:
-
-
 def processTransactions(transaction_seq):
     total = 0;
     for transaction in transaction_seq:
@@ -229,10 +171,6 @@ def processTransactions(transaction_seq):
 transactions = input("Enter the transaction data: ").splitlines();
 print(processTransactions(transactions));
 
-
-# In[ ]:
-
-
 '''
 9. A website requires the users to input username and password to register. Write a program to check the
 validity of the password input by users. Following are the criteria for checking the password:
@@ -244,15 +182,11 @@ validity of the password input by users. Following are the criteria for checking
 Your program should accept a sequence of comma-separated passwords and will check them according to the
 above criteria. Passwords that match the criteria are to be printed, each separated by a comma.
 Example: If the following passwords are given as input to the program:
-ABd1234@1, aF1#, 2w3E*, 2We3345
+ABd1234@1, aF1#, 2w3E*, 2We3345.
 Then, the output of the program should be:
 ABd1234@1
+
 '''
-
-
-# In[20]:
-
-
 import re as regex;
 
 def validatePassword(passwords):
@@ -268,11 +202,8 @@ validPasswords = validatePassword(inputs);
 for password in validPasswords:
     print(password, end=", ")
 
-
-# In[21]:
-
-
 '''
+
 10. You are required to write a program to sort the (name, age, height) tuples by ascending order where the
 name is string, age and height are numbers. The tuples are input by console. The sort criteria is:
 1. Sort based on name;
@@ -285,15 +216,10 @@ John, 20, 90
 Jonny, 17, 91
 Jonny, 17, 93
 Json, 21, 85
-The, the output of the program should be:
+Then, the output of the program should be:
 [("John", "20", "90"), ("Jonny", "17", "91"), ("Jonny", "17", "93"), ("Json", "21", "85"),
 ("Tom", "19", "80")]
 '''
-
-
-# In[24]:
-
-
 from operator import itemgetter;
 def sortData(dataset):
     dataset.sort(key=itemgetter(2));
@@ -307,10 +233,5 @@ for data in rawData:
     data = tuple(data.split(", "));
     dataset.append(data);
 print(sortData(dataset));
-
-
-# In[ ]:
-
-
 
 
